@@ -41,16 +41,16 @@ export default function AboutPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-10">
+                    <div className="p-4 md:p-10">
                         <span className="text-emerald-700 font-semibold text-sm">
                             EST. 2010
                         </span>
 
-                        <h2 className="text-5xl font-bold text-[#1a300d] mt-2 mb-8">
+                        <h2 className="text-3xl md:text-5xl font-bold text-[#1a300d] mt-2 mb-4 md:mb-8">
                             Our Journey
                         </h2>
 
-                        <h4 className="text-2xl text-emerald-900 font-bold mb-6">
+                        <h4 className="text-2xl text-emerald-900 font-bold mb-3 md:mb-6">
                             A tradition of tiling excellence across Sydney
                         </h4>
 
@@ -85,7 +85,7 @@ export default function AboutPage() {
             {/* CTA BOXES */}
             <section className="grid md:grid-cols-2 bg-emerald-100">
 
-                <div className="py-20 px-6 text-center border-b md:border-b-0 md:border-r border-emerald-200">
+                <div className="py-8 md:py-20 px-6 text-center border-b md:border-b-0 md:border-r border-emerald-200">
                     <h3 className="text-xl font-semibold mb-2">
                         Check Our Gallery
                     </h3>
@@ -100,7 +100,7 @@ export default function AboutPage() {
                     </a>
                 </div>
 
-                <div className="py-20 px-6 text-center">
+                <div className="py-8 md:py-20 px-6 text-center">
                     <h3 className="text-xl font-semibold mb-2">
                         Our Tiling Services
                     </h3>
@@ -118,7 +118,7 @@ export default function AboutPage() {
             </section>
 
             {/* FINAL CTA */}
-            <section className="py-24 text-center px-6">
+            <section className="py-10 md:py-24 text-center px-6">
                 <h2 className="text-3xl font-bold mb-3">
                     Ready to Work with KN’s Tiling Experts?
                 </h2>

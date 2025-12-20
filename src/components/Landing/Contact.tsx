@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 export default function Contact() {
   return (
     <section id="contact" className="bg-[#1a300d] py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="mx-auto px-6">
 
         {/* Heading */}
         <div className="mb-12 text-center lg:text-left">

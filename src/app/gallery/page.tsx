@@ -66,7 +66,7 @@ export default function GalleryPage() {
             {/* CTA BOXES */}
             <section className="grid md:grid-cols-2 bg-emerald-100 border-t border-emerald-200">
 
-                <div className="py-20 px-6 text-center border-b md:border-b-0 md:border-r border-emerald-200">
+                <div className="py-8 md:py-20 px-6 text-center border-b md:border-b-0 md:border-r border-emerald-200">
                     <h3 className="text-xl font-semibold mb-2">
                         Know More About Us
                     </h3>
@@ -81,7 +81,7 @@ export default function GalleryPage() {
                     </a>
                 </div>
 
-                <div className="py-20 px-6 text-center">
+                <div className="py-8 md:py-20 px-6 text-center">
                     <h3 className="text-xl font-semibold mb-2">
                         Our Tiling Services
                     </h3>
@@ -99,7 +99,7 @@ export default function GalleryPage() {
             </section>
 
             {/* FINAL CTA */}
-            <section className="py-24 text-center px-6">
+            <section className="py-10 md:py-24 text-center px-6">
                 <h2 className="text-3xl font-bold mb-3">
                     Ready to Work with KN’s Tiling Experts?
                 </h2>

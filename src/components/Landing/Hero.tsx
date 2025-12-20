@@ -29,7 +29,7 @@ const StatsBar = ({ className = "" }) => (
 
 export default function Hero() {
     return (
-        <main className="relative flex flex-col lg:flex-row py-20 px-6 md:px-16 lg:px-24 lg:bg-[#e4f5ed] overflow-hidden max-w-7xl mx-auto">
+        <main className="relative flex flex-col lg:flex-row py-20 px-10 lg:bg-[#e4f5ed] overflow-hidden mx-auto">
 
             {/* ================= MOBILE / TABLET BACKGROUND ================= */}
             <div className="absolute inset-0 lg:hidden -z-10">
@@ -52,8 +52,8 @@ export default function Hero() {
                 </div>
 
                 <TextReveal className="text-4xl sm:text-5xl font-semibold leading-tight mt-8">
-                    Crafting Surfaces for <br />
-                    <span className="font-bold">Elevated Living</span>
+                    Crafting Surfaces for 
+                    <span className="font-bold"> Elevated</span> Living
                 </TextReveal>
 
                 <p className="font-medium md:text-lg max-w-md">
@@ -77,7 +77,6 @@ export default function Hero() {
 
             {/* ================= RIGHT: IMAGES + STATS ================= */}
             <section className="hidden lg:flex flex-col flex-1 items-center gap-6">
-
                 {/* Images */}
                 <div className="flex gap-6">
                     <div className="relative w-64 h-110">

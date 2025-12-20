@@ -19,9 +19,8 @@ export default function Footer() {
             <Link
               href="/"
               className="
-            text-2xl
             italic
-            sm:text-3xl
+            text-3xl
             lg:text-3xl
             font-extrabold
             tracking-wide

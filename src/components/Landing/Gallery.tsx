@@ -20,13 +20,13 @@ const galleryImages = [
 
 export default function Gallery() {
   return (
-    <section className="bg-[#e9f6ef] py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#e9f6ef] py-8 md:py-20">
+      <div className="mx-auto px-6">
 
         {/* Heading */}
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold text-[#20244d]">
-            Our Projects Gallery
+        <div className="mb-6 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#20244d]">
+            Projects Gallery
           </h2>
           <p className="text-gray-700 mt-1">
             A showcase of our recent tiling work across Sydney

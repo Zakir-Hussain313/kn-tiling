@@ -19,7 +19,7 @@ const socials = [
 export default function TopLinks() {
     return (
         <div className="sticky top-0 z-50">
-            <main className="flex items-center justify-between h-12 px-8 bg-white/90 backdrop-blur-md border-b-2 border-gray-300">
+            <main className="flex items-center justify-between h-12 px-8 backdrop-blur-md border-b-2 border-gray-300">
 
                 {/* Left Info */}
                 <section className="flex gap-6">
