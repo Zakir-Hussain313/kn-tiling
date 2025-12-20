@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
+import TextReveal from "../TextReveal";
 
 export default function Hero() {
     return (
@@ -21,17 +22,18 @@ export default function Hero() {
 
             {/* Content */}
             <section className="flex flex-col gap-5 max-w-xl text-white lg:text-[#20244d]">
-                
+
                 {/* Verified Tag */}
                 <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-green-600/90 text-white text-sm font-medium">
                     <FaCheckCircle size={16} />
                     Verified Business
                 </div>
-
-                <h1 className="text-5xl font-semibold mb-6 mt-8">
+                <TextReveal
+                    className="text-5xl font-semibold mb-6 mt-8"
+                >
                     Crafting Surfaces For{" "}
                     <span className="font-bold">Elevated</span> Living
-                </h1>
+                </TextReveal>
 
                 <p className="font-semibold md:text-lg mb-2">
                     Sydney&apos;s trusted tiling company providing expert bathroom, kitchen,

@@ -65,7 +65,7 @@ export default function Footer() {
         <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
 
           {/* Copyright */}
-          <p className="text-sm text-gray-300">
+          <p className=" text-gray-800">
             © {new Date().getFullYear()} KN Tiling. All rights reserved.
           </p>
 

@@ -6,7 +6,7 @@ export default function About() {
     return (
         <main className="min-h-screen flex justify-center items-center">
             <div className="grid grid-cols-1 md:grid-cols-2 my-12">
-                <aside className="w-[80vw] md:w-[40vw] h-[50vh] sm:h-[40vh] md:h-[50vh] bg-white">
+                <aside className="w-[80vw] md:w-[40vw] h-auto md:h-[50vh] bg-white">
                     <div className="flex flex-col gap-3 p-5">
                         <h1 className="font-bold text-4xl lg:text-5xl text-[#1a300d]">About Us</h1>
                         <h2 className="font-bold text-2xl lg:text-3xl text-gray-900">
@@ -38,7 +38,7 @@ export default function About() {
                         />
                     </div>
                 </aside>
-                <aside className="w-[80vw] md:w-[40vw] md:h-[65vh] lg:h-[60vh] bg-white p-5 flex gap-5 flex-col">
+                <aside className="w-[80vw] md:w-[40vw] h-auto md:h-[50vh] bg-white p-5 flex gap-5 flex-col">
                     <p className="font-semibold text-lg md:text-base lg:text-lg">
                         KN Tiling is a locally owned tiling company established in 2010. We
                         provide comprehensive tiling services across Sydney, specialising in
