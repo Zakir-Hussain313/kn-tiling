@@ -17,14 +17,14 @@ export default function Navbar() {
       gsap.fromTo(
         mobileMenuRef.current,
         { height: 0, opacity: 0 },
-        { height: "auto", opacity: 1, duration: 0.5, ease: "power3.out" }
+        { height: "auto", opacity: 1, duration: 0.45, ease: "power3.out" }
       );
       document.body.style.overflow = "hidden";
     } else {
       gsap.to(mobileMenuRef.current, {
         height: 0,
         opacity: 0,
-        duration: 0.4,
+        duration: 0.35,
         ease: "power3.in",
       });
       document.body.style.overflow = "";
@@ -32,25 +32,34 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="relative bg-[#e4f5ed] w-full z-50 backdrop-blur-md border-b-2 border-gray-500">
-      <div className="max-w-7xl px-4 mx-auto py-1 flex items-center justify-between">
+    <nav className="sticky top-0 z-50 w-full border-b border-gray-400 bg-[#e4f5ed]/90 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
 
         {/* Logo */}
         <Link
           href="/"
-          className="text-4xl lg:text-5xl py-2 font-extrabold italic leading-tight bg-linear-to-r from-[#157eb6] to-[#533184] bg-clip-text text-transparent"
+          className="
+            text-2xl
+            sm:text-3xl
+            italic
+            lg:text-3xl
+            font-extrabold
+            tracking-wide
+            bg-linear-to-r from-[#157eb6] to-[#533184]
+            bg-clip-text text-transparent
+          "
         >
           KN Tiling
         </Link>
 
-        {/* Desktop Menu + Button */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10">
-          <ul className="flex gap-8 font-semibold text-black">
+          <ul className="flex gap-8 text-[15px] font-medium text-gray-800">
             {["About", "Services", "Gallery", "Contact"].map((item) => (
               <li key={item} className="relative group">
                 <Link
                   href={`/${item.toLowerCase()}`}
-                  className="transition-colors duration-300 cursor-pointer hover:text-[#1a300d]"
+                  className="transition-colors hover:text-black"
                 >
                   {item}
                 </Link>
@@ -59,39 +68,71 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA Button */}
+          {/* CTA */}
           <Link
             href="#contact"
-            className="bg-[#1a300d] text-white px-5 py-2 font-medium hover:opacity-90 transition"
+            className="
+              rounded-md
+              bg-[#1a300d]
+              px-6
+              py-2.5
+              text-sm
+              font-semibold
+              text-white
+              shadow-sm
+              transition
+              hover:scale-[1.03]
+              hover:shadow-md
+            "
           >
             Get a free quote
           </Link>
         </div>
 
         {/* Mobile Toggle */}
-        <div
-          className="md:hidden cursor-pointer text-black"
+        <button
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
           onClick={() => setIsOpen((prev) => !prev)}
+          className="md:hidden text-gray-900"
         >
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </div>
+        </button>
       </div>
 
-      {/* Mobile Menu (absolute, no layout shift) */}
+      {/* Mobile Menu */}
       <ul
         ref={mobileMenuRef}
-        className="md:hidden absolute top-full left-0 w-full bg-[#e4f5ed] overflow-hidden z-50 px-6 font-medium border-t border-gray-400"
+        className="
+          md:hidden
+          absolute
+          top-full
+          left-0
+          w-full
+          overflow-hidden
+          bg-[#e4f5ed]
+          px-6
+          font-medium
+          border-t
+          border-gray-400
+        "
         style={{ height: 0, opacity: 0 }}
       >
         {["About", "Services", "Gallery", "Contact"].map((item) => (
           <li
             key={item}
-            className="py-4 border-b border-b-gray-400 last:border-none"
+            className="border-b border-gray-300 last:border-none"
           >
             <Link
               href={`/${item.toLowerCase()}`}
               onClick={() => setIsOpen(false)}
-              className="block w-full text-black hover:text-purple-500 transition-colors duration-300"
+              className="
+                block
+                py-4
+                text-gray-900
+                transition-colors
+                hover:text-[#533184]
+              "
             >
               {item}
             </Link>

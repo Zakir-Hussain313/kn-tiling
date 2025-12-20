@@ -1,14 +1,37 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import TextReveal from "../TextReveal";
 
+const StatsBar = ({ className = "" }) => (
+    <div
+        className={`grid grid-cols-3 text-center text-sm font-semibold overflow-hidden ${className}`}
+    >
+        <div className="bg-[#1a300d] text-white py-2 px-4 flex flex-col items-center gap-1">
+            <span className="text-xl font-bold">15+</span>
+            <span>Years of Experience</span>
+        </div>
+
+        <div className="bg-white text-[#20244d] py-2 px-4 flex flex-col items-center gap-1">
+            <span className="text-xl font-bold">100%</span>
+            <span>Licensed</span>
+        </div>
+
+        <div className="bg-white text-[#20244d] py-2 px-4 flex flex-col items-center gap-1">
+            <span className="text-xl font-bold">∞</span>
+            <span>Happy Clients</span>
+        </div>
+    </div>
+);
+
 export default function Hero() {
     return (
-        <main className="relative flex flex-col lg:flex-row gap-12 py-20 px-6 md:px-16 lg:bg-[#e4f5ed] overflow-hidden">
+        <main className="relative flex flex-col lg:flex-row py-20 px-6 md:px-16 lg:px-24 lg:bg-[#e4f5ed] overflow-hidden max-w-7xl mx-auto">
 
-            {/* Mobile / Tablet Background Image */}
+            {/* ================= MOBILE / TABLET BACKGROUND ================= */}
             <div className="absolute inset-0 lg:hidden -z-10">
                 <Image
                     src="/hero-img-1.avif"
@@ -17,67 +40,70 @@ export default function Hero() {
                     priority
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 bg-black/50" />
             </div>
 
-            {/* Content */}
-            <section className="flex flex-col gap-5 max-w-xl text-white lg:text-[#20244d]">
+            {/* ================= LEFT: TEXT ================= */}
+            <section className="flex-1 flex flex-col gap-5 max-w-xl text-white lg:text-[#20244d] relative z-10">
 
-                {/* Verified Tag */}
                 <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-green-600/90 text-white text-sm font-medium">
                     <FaCheckCircle size={16} />
                     Verified Business
                 </div>
-                <TextReveal
-                    className="text-5xl font-semibold mb-6 mt-8"
-                >
-                    Crafting Surfaces For{" "}
-                    <span className="font-bold">Elevated</span> Living
+
+                <TextReveal className="text-4xl sm:text-5xl font-semibold leading-tight mt-8">
+                    Crafting Surfaces for <br />
+                    <span className="font-bold">Elevated Living</span>
                 </TextReveal>
 
-                <p className="font-semibold md:text-lg mb-2">
+                <p className="font-medium md:text-lg max-w-md">
                     Sydney&apos;s trusted tiling company providing expert bathroom, kitchen,
-                    floor, outdoor and pool tiling services with 15+ years of experience and
-                    quality craftsmanship
+                    outdoor and pool tiling services with 15+ years experience and quality
+                    craftsmanship guaranteed
                 </p>
 
                 <Link
                     href="#contact"
-                    className="bg-[#1a300d] text-white px-6 py-3 w-fit font-medium hover:opacity-90 transition flex gap-3 items-center"
+                    className="mt-4 bg-[#1a300d] text-white px-6 py-4 w-fit font-medium flex gap-3 items-center hover:opacity-90 transition"
                 >
                     Call Now <FaArrowRightLong />
                 </Link>
+
+                {/* MOBILE / TABLET STATS */}
+                <div className="lg:hidden mt-10">
+                    <StatsBar className="w-full" />
+                </div>
             </section>
 
-            {/* Desktop Images */}
-            <section className="flex flex-col gap-4">
-                <article className="hidden lg:flex gap-6">
+            {/* ================= RIGHT: IMAGES + STATS ================= */}
+            <section className="hidden lg:flex flex-col flex-1 items-center gap-6">
+
+                {/* Images */}
+                <div className="flex gap-6">
                     <div className="relative w-64 h-110">
                         <Image
                             src="/hero-img-1.avif"
-                            alt="Hero Image"
+                            alt="Hero Image 1"
                             fill
-                            className="object-cover"
+                            className="object-cover rounded-lg"
                         />
                     </div>
                     <div className="relative w-64 h-110">
                         <Image
                             src="/hero-img-2.avif"
-                            alt="Hero Image"
+                            alt="Hero Image 2"
                             fill
-                            className="object-cover"
+                            className="object-cover rounded-lg"
                         />
                     </div>
-                </article>
-                <article className="flex justify-center gap-3">
-                    <div className="flex justify-center items-center md:p-3 p-1 bg-green-900 text-white">
-                        <h1 className="md:text-xl">15+ Years of Experience</h1>
-                    </div>
-                    <div className="flex justify-center items-center bg-white md:p-3 p-1">
-                        <h1 className="md:text-xl">95% Happy Clients Rate</h1>
-                    </div>
-                </article>
+                </div>
+
+                {/* DESKTOP STATS — DIRECTLY UNDER IMAGES */}
+                <div className="mt-2">
+                    <StatsBar className="max-w-md" />
+                </div>
             </section>
+
         </main>
     );
 }

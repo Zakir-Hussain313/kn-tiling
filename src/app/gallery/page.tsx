@@ -68,13 +68,13 @@ export default function GalleryPage() {
 
                 <div className="py-20 px-6 text-center border-b md:border-b-0 md:border-r border-emerald-200">
                     <h3 className="text-xl font-semibold mb-2">
-                        Check Our Gallery
+                        Know More About Us
                     </h3>
                     <p className="text-gray-700 mb-6">
-                        View our professional tiling projects throughout Sydney
+                        Know more about your go to tiling services company in Sydney
                     </p>
                     <a
-                        href="/gallery"
+                        href="/about"
                         className="inline-block bg-emerald-800 text-white px-6 py-3 font-semibold hover:bg-emerald-900 transition"
                     >
                         Learn More →

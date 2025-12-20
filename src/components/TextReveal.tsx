@@ -25,7 +25,7 @@ export default function TextReveal({
             },
             {
                 opacity: 1,
-                y: -10,
+                y: 0,
                 duration: 1,
                 ease: "power3.out",
             }

@@ -1,90 +1,133 @@
+import { FaFacebookF, FaInstagram, FaPhoneAlt } from "react-icons/fa";
+import { MdEmail, MdLocationOn } from "react-icons/md";
+import { HiOutlineDocumentText } from "react-icons/hi";
 import Link from "next/link";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { FaFacebookF, FaInstagram } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="text-black pt-16 pb-6">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-white border-t text-gray-700">
+      <div className="max-w-7xl mx-auto px-6 py-12">
 
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        {/* MAIN GRID */}
+        <div className="grid gap-10 
+          grid-cols-1 
+          md:grid-cols-2 
+          lg:grid-cols-4">
 
-          {/* Brand */}
+          {/* BRAND */}
           <div>
-            <h3 className="text-3xl font-extrabold mb-4">
+            <Link
+              href="/"
+              className="
+            text-2xl
+            italic
+            sm:text-3xl
+            lg:text-3xl
+            font-extrabold
+            tracking-wide
+            bg-linear-to-r from-[#157eb6] to-[#533184]
+            bg-clip-text text-transparent
+            m-4 mb-6 inline-block
+          "
+            >
               KN Tiling
-            </h3>
-            <p className="max-w-sm">
-              Sydney&apos;s trusted tiling specialists delivering premium
-              craftsmanship across residential and commercial projects.
+            </Link>
+
+            <p className="text-sm leading-relaxed mb-6">
+              Experienced tiling specialists serving Sydney since 2010.
+              We provide professional bathroom, kitchen, floor, wall,
+              outdoor, pool and balcony tiling services throughout Sydney
+              with care and quality. Our fully licensed and insured team
+              with over 15 years of experience ensures your property is in
+              safe hands.
             </p>
+
+            <div className="flex gap-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white">
+                <FaFacebookF />
+              </div>
+              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-linear-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white">
+                <FaInstagram />
+              </div>
+            </div>
           </div>
 
-          {/* Quick Links */}
+          {/* QUICK LINKS */}
           <div>
-            <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-            <ul className="flex flex-col gap-3">
-              {["Home", "About", "Services", "Gallery", "Contact"].map(
-                (item) => (
-                  <li key={item}>
-                    <Link
-                      href={`/${item.toLowerCase()}`}
-                      className=""
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                )
-              )}
+            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-sm">
+              <li>Home</li>
+              <li>About Us</li>
+              <li>Our Services</li>
+              <li>Gallery</li>
+              <li>FAQs</li>
+              <li>Blog</li>
+              <li>Contact Us</li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* SERVICES */}
           <div>
-            <h4 className="text-xl font-semibold mb-4">Contact</h4>
-            <ul className="flex flex-col gap-4 ">
+            <h3 className="font-semibold mb-4">Our Services</h3>
+            <ul className="space-y-2 text-sm">
+              <li>Renovations Sydney</li>
+              <li>Bathroom Renovations Sydney</li>
+              <li>Floor Tiling Sydney</li>
+              <li>Wall Tiling Sydney</li>
+              <li>Kitchen Tiling Sydney</li>
+              <li>Outdoor Tiling Sydney</li>
+              <li>Pool Tiling Sydney</li>
+              <li>Balcony Tiling Sydney</li>
+              <li>Waterproofing Sydney</li>
+            </ul>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h3 className="font-semibold mb-4">Contact Us</h3>
+
+            <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3">
-                <FaPhoneAlt />
-                <span>+61 400 000 000</span>
+                <FaPhoneAlt className="text-green-600" />
+                0123456789
               </li>
+
               <li className="flex items-center gap-3">
-                <FaEnvelope />
-                <span>info@kntiling.com.au</span>
+                <MdEmail className="text-green-600" />
+                info@kntiling.com
               </li>
+
               <li className="flex items-center gap-3">
-                <FaMapMarkerAlt />
-                <span>Sydney, NSW</span>
+                <MdLocationOn className="text-green-600" />
+                Sydney, NSW
+              </li>
+
+              <li className="flex items-center gap-3">
+                <HiOutlineDocumentText className="text-green-600" />
+                ABN: 72 683 763 576
+              </li>
+
+              <li className="flex items-center gap-3">
+                <HiOutlineDocumentText className="text-green-600" />
+                Contractor Licence: 123456789
               </li>
             </ul>
           </div>
 
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* BOTTOM BAR */}
+        <div className="border-t mt-12 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500 gap-4">
+          <p>© 2025 KN Tiling Pty Ltd. All rights reserved.</p>
 
-          {/* Copyright */}
-          <p className=" text-gray-800">
-            © {new Date().getFullYear()} KN Tiling. All rights reserved.
-          </p>
-
-          {/* Socials */}
-          <div className="flex gap-4">
-            <Link
-              href="#"
-              className="p-2 border border-white/30 hover:bg-white hover:text-[#1a300d] transition"
-            >
-              <FaFacebookF />
-            </Link>
-            <Link
-              href="#"
-              className="p-2 border border-white/30 hover:bg-white hover:text-[#1a300d] transition"
-            >
-              <FaInstagram />
-            </Link>
+          <div className="flex gap-6">
+            <span className="hover:text-gray-800 cursor-pointer">
+              Privacy Policy
+            </span>
+            <span className="hover:text-gray-800 cursor-pointer">
+              Terms & Conditions
+            </span>
           </div>
-
         </div>
 
       </div>
