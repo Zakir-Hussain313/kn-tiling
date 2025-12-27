@@ -116,9 +116,9 @@ export default function GalleryPage() {
         <p className="text-sm font-bold text-gray-700 mb-6">
           Our qualified team is here to help with all your tiling needs
         </p>
-        <button className="bg-[#1b3a1b] text-white px-8 py-3 font-semibold cursor-pointer hover:bg-[#122507] transition">
+        <Link href={'/contact'} className="bg-[#1b3a1b] text-white px-8 py-3 font-semibold cursor-pointer hover:bg-[#122507] transition">
           Call Now: 0123456789
-        </button>
+        </Link>
       </section>
 
     </main>

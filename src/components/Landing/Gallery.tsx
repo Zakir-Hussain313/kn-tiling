@@ -73,11 +73,9 @@ export default function Gallery() {
               <SwiperSlide key={item._id}>
                 {({ isActive, isPrev, isNext }) => (
                   <div
-                    className={`transition-all duration-500 ${
-                      isActive ? "scale-100 opacity-100" : ""
-                    }${isPrev || isNext ? "scale-90 opacity-70" : ""}${
-                      !isActive && !isPrev && !isNext ? "scale-85 opacity-50" : ""
-                    }`}
+                    className={`transition-all duration-500 ${isActive ? "scale-100 opacity-100" : ""
+                      }${isPrev || isNext ? "scale-90 opacity-70" : ""}${!isActive && !isPrev && !isNext ? "scale-85 opacity-50" : ""
+                      }`}
                   >
                     <div className="bg-[#fffaf6] border border-gray-300 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
                       <div className="relative w-full h-72 md:h-80">
@@ -103,7 +101,7 @@ export default function Gallery() {
           <style jsx global>{`
             .gallery-pagination .swiper-pagination-bullet {
               width: 15px !important;
-              height: 4px !important;
+              height: 3px !important;
               background: black !important;
               border-radius: 0 !important;
               transition: width 0.3s;

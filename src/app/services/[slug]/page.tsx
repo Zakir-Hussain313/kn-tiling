@@ -41,7 +41,7 @@ export default async function ServicePage({
       {/* Hero Image */}
       {service.image && (
         <section className="px-6 md:px-20 mt-6">
-          <div className="relative h-[260px] md:h-[420px]">
+          <div className="relative h-65 md:h-105">
             <Image
               src={service.image} // dynamic image from DB
               alt={service.title}

@@ -108,7 +108,7 @@ export default function ServicesPage() {
                         Your local tiling experts in Sydney since 2010
                     </p>
                     <Link
-                        href="/services"
+                        href="/about"
                         className="inline-block bg-[#1a300d] text-white px-6 py-3 font-semibold hover:bg-emerald-900 transition"
                     >
                         Learn More →
@@ -123,7 +123,7 @@ export default function ServicesPage() {
                         View our professional tiling projects throughout Sydney
                     </p>
                     <Link
-                        href="/services"
+                        href="/gallery"
                         className="inline-block bg-[#1a300d] text-white px-6 py-3 font-semibold hover:bg-emerald-900 transition"
                     >
                         Learn More →
@@ -139,9 +139,9 @@ export default function ServicesPage() {
                 <p className="text-sm font-bold text-gray-700 mb-6">
                     Our qualified team is here to help with all your tiling needs
                 </p>
-                <button className="bg-[#1b3a1b] text-white px-8 py-3 font-semibold cursor-pointer hover:bg-[#122507] transition">
+                <Link href={'/contact'} className="bg-[#1b3a1b] text-white px-8 py-3 font-semibold cursor-pointer hover:bg-[#122507] transition">
                     Call Now: 0123456789
-                </button>
+                </Link>
             </section>
         </main>
     );

@@ -93,26 +93,9 @@ export default function AboutPage() {
 
                 </div>
             </section>
+            <section className="grid md:grid-cols-2 border-t border-gray-500">
 
-            {/* CTA BOXES */}
-            <section className="grid md:grid-cols-2 bg-emerald-100">
-
-                <div className="py-8 md:py-20 px-6 text-center border-t border-b md:border-b-0 md:border-r border-black">
-                    <h3 className="text-3xl font-bold text-[#1a300d] italic mb-2">
-                        Check Our Gallery
-                    </h3>
-                    <p className="text-gray-700 mb-8 font-bold">
-                        View our professional tiling projects throughout Sydney
-                    </p>
-                    <a
-                        href="/gallery"
-                        className="inline-block bg-[#1a300d] text-white px-6 py-3 font-semibold hover:bg-emerald-900 transition"
-                    >
-                        Learn More →
-                    </a>
-                </div>
-
-                <div className="py-8 md:py-20 px-6 text-center lg:border-t border-black">
+                <div className="py-8 md:py-20 px-6 text-center md:border-r md:border-b border-black">
                     <h3 className="text-3xl font-bold text-[#1a300d] italic mb-2">
                         Our Tiling Services
                     </h3>
@@ -126,17 +109,34 @@ export default function AboutPage() {
                         Learn More →
                     </Link>
                 </div>
-                <section className="py-16 px-4 text-center">
-                    <h2 className="text-3xl italic text-[#1a300d] font-bold mb-3">
-                        Ready to Work with KN’s Tiling Experts?
-                    </h2>
-                    <p className="text-sm font-bold text-gray-700 mb-6">
-                        Our qualified team is here to help with all your tiling needs
+
+                <div className="py-8 md:py-20 px-6 text-center border-b border-t md:border-t-0 border-black">
+                    <h3 className="text-3xl font-bold text-[#1a300d] italic mb-2">
+                        Check Our Gallery
+                    </h3>
+                    <p className="text-gray-700 mb-8 font-bold">
+                        View our professional tiling projects throughout Sydney
                     </p>
-                    <button className="bg-[#1b3a1b] text-white px-8 py-3 font-semibold cursor-pointer hover:bg-[#122507] transition">
-                        Call Now: 0123456789
-                    </button>
-                </section>
+                    <Link
+                        href="/gallery"
+                        className="inline-block bg-[#1a300d] text-white px-6 py-3 font-semibold hover:bg-emerald-900 transition"
+                    >
+                        Learn More →
+                    </Link>
+                </div>
+            </section>
+
+            {/* CTA */}
+            <section className="py-16 px-4 text-center">
+                <h2 className="text-3xl italic text-[#1a300d] font-bold mb-3">
+                    Ready to Work with KN’s Tiling Experts?
+                </h2>
+                <p className="text-sm font-bold text-gray-700 mb-6">
+                    Our qualified team is here to help with all your tiling needs
+                </p>
+                <Link href={'/contact'} className="bg-[#1b3a1b] text-white px-8 py-3 font-semibold cursor-pointer hover:bg-[#122507] transition">
+                    Call Now: 0123456789
+                </Link>
             </section>
         </main>
     );

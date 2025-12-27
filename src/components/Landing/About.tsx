@@ -77,7 +77,7 @@ export default function About() {
                     {/* Top-right image */}
                     <aside className="relative h-112">
                         <Image
-                            src="/about-img-1.avif"
+                            src="/hero-img-1.avif"
                             alt="About Image 1"
                             fill
                             className="object-cover"

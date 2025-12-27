@@ -103,7 +103,7 @@ export default function ServicesSwiper() {
             <style jsx global>{`
   .services-pagination .swiper-pagination-bullet {
     width: 15px !important;
-    height: 4px !important;
+    height: 3px !important;
     background: black !important;
     border-radius: 0 !important;
     transition: width 0.3s;
