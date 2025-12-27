@@ -1,14 +1,28 @@
-// src/lib/mongodb.ts
-import { MongoClient } from "mongodb";
+import { MongoClient, Db } from "mongodb";
 
-if (!process.env.MONGODB_URI) {
-  throw new Error("Please define MONGODB_URI in .env.local");
+const uri = process.env.MONGODB_URI!;
+const dbName = process.env.MONGODB_DB!;
+
+if (!uri) {
+  throw new Error("Please define the MONGODB_URI environment variable");
 }
 
-const client = new MongoClient(process.env.MONGODB_URI);
-const dbName = "tiling_services";
+if (!dbName) {
+  throw new Error("Please define the MONGODB_DB environment variable");
+}
 
-export async function getDB() {
-  if (!client.isConnected?.()) await client.connect();
-  return client.db(dbName);
+let client: MongoClient;
+let db: Db;
+
+export async function getDB(): Promise<Db> {
+  if (!client) {
+    client = new MongoClient(uri);
+  }
+
+  if (!db) {
+    await client.connect();
+    db = client.db(dbName);
+  }
+
+  return db;
 }

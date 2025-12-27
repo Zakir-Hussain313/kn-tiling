@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   }
 
   const formData = await req.formData();
-  const title = formData.get("title")?.toString() || "";
+  const title = formData.get("title")?.toString() ?? "";
   const imageFile = formData.get("image") as File | null;
 
   if (!imageFile || imageFile.size === 0) {
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
   const buffer = Buffer.from(await imageFile.arrayBuffer());
 
-  const uploadResult: any = await new Promise((resolve, reject) => {
+  const uploadResult = await new Promise<any>((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
       { folder: "gallery" },
       (err, result) => {
@@ -51,25 +51,4 @@ export async function POST(req: Request) {
     title,
     image: uploadResult.secure_url,
   });
-}
-
-// DELETE gallery image (ADMIN ONLY)
-export async function DELETE(
-  _req: Request,
-  context: { params: Promise<{ id: string }> }
-) {
-  const { id } = await context.params;
-
-  const user = await currentUser();
-  if (!user || user.id !== ADMIN_USER_ID) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const db = await getDB();
-  const image = await db.collection("gallery").findOne({ _id: new ObjectId(id) });
-  if (!image) return NextResponse.json({ error: "Not found" }, { status: 404 });
-
-  await db.collection("gallery").deleteOne({ _id: new ObjectId(id) });
-
-  return NextResponse.json({ success: true });
 }

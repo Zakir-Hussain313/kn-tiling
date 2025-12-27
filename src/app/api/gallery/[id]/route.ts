@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { currentUser } from "@clerk/nextjs/server";
 import { ADMIN_USER_ID } from "@/lib/admin";
 import { getDB } from "@/lib/mongodb";
@@ -6,39 +6,46 @@ import cloudinary from "@/lib/cloudinary";
 import { ObjectId } from "mongodb";
 
 export async function DELETE(
-  _req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  _req: NextRequest,
+  context: { params: Promise<{ id: string }> }
 ) {
   const user = await currentUser();
   if (!user || user.id !== ADMIN_USER_ID) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // ✅ Await params to get id
-  const resolvedParams = await params;
-  const { id } = resolvedParams;
+  // ✅ Next.js 16 REQUIRES awaiting params
+  const { id } = await context.params;
 
-  if (!id) return NextResponse.json({ error: "Missing ID" }, { status: 400 });
+  if (!id) {
+    return NextResponse.json({ error: "Missing ID" }, { status: 400 });
+  }
 
   const db = await getDB();
-  const imageDoc = await db.collection("gallery").findOne({ _id: new ObjectId(id) });
+  const imageDoc = await db
+    .collection("gallery")
+    .findOne({ _id: new ObjectId(id) });
 
-  if (!imageDoc) return NextResponse.json({ error: "Image not found" }, { status: 404 });
+  if (!imageDoc) {
+    return NextResponse.json({ error: "Image not found" }, { status: 404 });
+  }
 
-  // Delete image from Cloudinary if exists
+  // Delete from Cloudinary
   if (imageDoc.image) {
     try {
-      const urlParts = imageDoc.image.split("/");
-      const filenameWithExt = urlParts[urlParts.length - 1]; // e.g., "abc123.jpg"
-      const publicId = `gallery/${filenameWithExt.split(".")[0]}`; // folder + filename without extension
+      const parts = imageDoc.image.split("/");
+      const filename = parts[parts.length - 1];
+      const publicId = `gallery/${filename.split(".")[0]}`;
       await cloudinary.uploader.destroy(publicId);
     } catch (err) {
-      console.error("Failed to delete image from Cloudinary:", err);
+      console.error("Cloudinary delete failed:", err);
     }
   }
 
-  // Delete image from DB
-  await db.collection("gallery").deleteOne({ _id: new ObjectId(id) });
+  // Delete from MongoDB
+  await db.collection("gallery").deleteOne({
+    _id: new ObjectId(id),
+  });
 
   return NextResponse.json({ success: true });
 }
