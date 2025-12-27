@@ -6,7 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function About() {
     return (
-        <main className="flex justify-center pt-8 md:py-20 bg-[#e4f5ed]">
+        <main className="flex justify-center pt-8 md:py-20 bg-[#e4f5ed] border-b-2 lg:border-none pb-4 border-black">
             <div className="w-[90%] lg:w-[80%]">
 
                 {/* ================= MOBILE & TABLET ================= */}
@@ -15,7 +15,7 @@ export default function About() {
                     {/* Image with text overlay */}
                     <div className="relative w-full h-72 sm:h-80">
                         <Image
-                            src="/about-img-1.avif"
+                            src="/gallery-4.jpeg"
                             alt="About KN Tiling"
                             fill
                             priority
@@ -26,12 +26,12 @@ export default function About() {
                         <div className="absolute inset-0 bg-black/40" />
 
                         {/* Text on image */}
-                        <div className="absolute bottom-6 left-6 right-6 text-white">
-                            <h3 className="text-gray-900 font-bold text-xl mb-2">
+                        <div className="absolute bottom-6 left-6 right-6">
+                            <h3 className="text-gray-900 font-extrabold italic text-lg">
                                 About Us
                             </h3>
 
-                            <h2 className="text-2xl sm:text-4xl font-bold leading-tight">
+                            <h2 className="text-xl sm:text-4xl pr-12 text-[#20244d] font-bold leading-tight">
                                 KN’s Trusted Tiling Company
                             </h2>
                         </div>
@@ -39,11 +39,11 @@ export default function About() {
 
                     {/* Content */}
                     <div className="p-6 flex flex-col gap-4">
-                        <p className="text-lg font-semibold text-[#1a300d]">
+                        <p className="md:text-lg font-semibold text-[#1a300d]">
                             Expert tilers and tiling services for every project throughout Sydney
                         </p>
 
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-700 text-sm md:text-base leading-relaxed">
                             KN Tiling is a locally owned tiling company established in 2010. We provide
                             comprehensive tiling services throughout Sydney, specialising in bathroom
                             tiling, kitchen tiling, floor tiling, wall tiling, outdoor tiling, and
@@ -64,7 +64,7 @@ export default function About() {
                 <section className="hidden lg:grid grid-cols-2 gap-0">
 
                     {/* Top-left text */}
-                    <aside className="flex flex-col justify-center p-8 bg-white">
+                    <aside className="flex flex-col pt-24 p-8 bg-white">
                         <h1 className="font-bold text-5xl text-[#1a300d] mb-3">About Us</h1>
                         <h2 className="font-bold text-3xl text-gray-900 mt-3">
                             Sydney&apos;s Trusted Tiling Company
@@ -95,11 +95,11 @@ export default function About() {
                     </aside>
 
                     {/* Bottom-right text */}
-                    <aside className="flex flex-col justify-center p-8 bg-white">
+                    <aside className="flex flex-col pt-24 p-8 bg-white">
                         <p className="font-semibold text-gray-700 text-lg md:text-xl max-w-md">
                             KN Tiling is a locally owned tiling company established in 2010. We provide
                             comprehensive tiling services across Sydney, specialising in bathroom,
-                            kitchen, floor, wall, outdoor tiling, and waterproofing solutions.
+                            kitchen, floor, wall, outdoor tiling, and waterproofing solutions. Our team of professional tilers bring over 15 years of industry experience to every project we undertake...
                         </p>
 
                         <Link

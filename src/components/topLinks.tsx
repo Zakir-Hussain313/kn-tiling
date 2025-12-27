@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { FaFacebook, FaPhone } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";

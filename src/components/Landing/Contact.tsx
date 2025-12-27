@@ -1,82 +1,35 @@
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-[#1a300d] py-20">
-      <div className="mx-auto px-6">
+    <section id="contact" className="bg-[#1a300d] py-12 m-2 lg:m-8">
+      <div className="mx-auto px-2 flex flex-col gap-8 items-center">
 
         {/* Heading */}
-        <div className="mb-12 text-center lg:text-left">
-          <h2 className="text-3xl font-bold text-white">
-            Get In Touch
+        <div className="mb-12 lg:mb-0 text-center lg:text-left">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white lg:text-center">
+            Ready for Professional Tiling Services in Sydney
           </h2>
-          <p className="text-sm text-gray-200 mt-2">
-            Request a free quote or discuss your tiling project with us
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
+        <div className="flex flex-col gap-8 items-center">
           {/* Contact Info */}
-          <div className="text-white flex flex-col gap-8">
-            <p className="text-lg max-w-md text-gray-200">
-              We&apos;d love to hear about your project. Contact KN Tiling today for
-              reliable, high-quality tiling services across Sydney.
+          <div className="text-white flex flex-col gap-12 mb-4">
+            <p className="text-lg lg:text-xl text-center max-w-3xl text-gray-200">
+              Our qualified Sydney tilers are ready to provide expert tiling solutions across Sydney. Get a free no-obligation qoute today.
             </p>
-
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-4">
-                <FaPhoneAlt className="text-xl" />
-                <span className="text-lg">+61 400 000 000</span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <FaEnvelope className="text-xl" />
-                <span className="text-lg">info@kntiling.com.au</span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <FaMapMarkerAlt className="text-xl" />
-                <span className="text-lg">Sydney, NSW</span>
-              </div>
-            </div>
           </div>
-
-          {/* Contact Form */}
-          <form className="bg-white p-8 shadow-lg flex flex-col gap-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="border border-gray-300 px-4 py-3 focus:outline-none focus:border-[#1a300d]"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="border border-gray-300 px-4 py-3 focus:outline-none focus:border-[#1a300d]"
-              />
-            </div>
-
-            <input
-              type="text"
-              placeholder="Phone Number"
-              className="border border-gray-300 px-4 py-3 focus:outline-none focus:border-[#1a300d]"
-            />
-
-            <textarea
-              placeholder="Tell us about your project"
-              rows={5}
-              className="border border-gray-300 px-4 py-3 resize-none focus:outline-none focus:border-[#1a300d]"
-            />
-
-            <button
-              type="submit"
-              className="bg-[#1a300d] text-white py-3 font-medium hover:opacity-90 transition"
+          <div className="flex flex-col lg:flex-row justify-center items-center lg:gap-8 gap-4">
+            <Link
+              href={'/contact'}
+              className="py-3 px-6 bg-white font-semibold"
             >
-              Send Message
-            </button>
-          </form>
-
+              Get a Free Qoute →
+            </Link>
+            <Link href={'/contact'} className="py-3 px-5 text-white border-2 border-white">
+              Call now: 123456789
+            </Link>
+          </div>
         </div>
       </div>
     </section>
