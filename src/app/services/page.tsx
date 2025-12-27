@@ -43,7 +43,7 @@ export default function ServicesPage() {
             {/* Hero */}
             <section className="relative h-75 w-full">
                 <Image
-                    src="/about-img-1.avif"
+                    src="/gallery-1.jpeg"
                     alt="Tiling Services"
                     fill
                     className="object-cover"

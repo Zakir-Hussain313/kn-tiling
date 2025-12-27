@@ -5,14 +5,21 @@ import { getDB } from "@/lib/mongodb";
 import cloudinary from "@/lib/cloudinary";
 import slugify from "slugify";
 
+// Increase body size limit for large images
+export const config = {
+  api: {
+    bodyParser: { sizeLimit: "50mb" },
+  },
+};
+
 // POST a new service (ADMIN only)
 export async function POST(req: Request) {
-  const user = await currentUser();
-  if (!user || user.id !== ADMIN_USER_ID) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   try {
+    const user = await currentUser();
+    if (!user || user.id !== ADMIN_USER_ID) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const formData = await req.formData();
     const title = formData.get("title")?.toString();
     const description = formData.get("description")?.toString();
@@ -25,7 +32,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // Generate slug (unique enough)
+    // Generate slug
     const slug = slugify(title, { lower: true, strict: true });
 
     // Upload image to Cloudinary
@@ -64,7 +71,7 @@ export async function POST(req: Request) {
       slug,
     });
   } catch (err) {
-    console.error(err);
+    console.error("Services POST error:", err);
     return NextResponse.json({ error: "Failed to add service" }, { status: 500 });
   }
 }
@@ -75,7 +82,6 @@ export async function GET() {
     const db = await getDB();
     const services = await db.collection("services").find().toArray();
 
-    // Return services with string _id
     const formattedServices = services.map((s) => ({
       _id: s._id.toString(),
       title: s.title,
@@ -86,7 +92,7 @@ export async function GET() {
 
     return NextResponse.json(formattedServices);
   } catch (err) {
-    console.error(err);
+    console.error("Services GET error:", err);
     return NextResponse.json({ error: "Failed to fetch services" }, { status: 500 });
   }
 }
